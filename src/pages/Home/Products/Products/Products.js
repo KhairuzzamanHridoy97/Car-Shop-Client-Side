@@ -15,7 +15,6 @@ const Products = () => {
             <h2 className='my-5 display-4 text-bold fw-bold text-danger'>Our Cars</h2>
             <Container>
             <Row xs={1} md={3} className="g-4">
-
                 {
                     ourCars.slice(0,6).map(
                         ourCar=> <Product 
