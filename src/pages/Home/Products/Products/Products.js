@@ -19,6 +19,7 @@ const Products = () => {
                     ourCars.slice(0,6).map(
                         ourCar=> <Product 
                         ourCar={ourCar}
+                        key={ourCar.id}
                         >
 
                         </Product>

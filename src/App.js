@@ -5,6 +5,9 @@ import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Home from './pages/Home/Home/Home';
 import Cars from './pages/Cars/Cars/Cars';
+import Login from './pages/Login/Login/Login';
+
+
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
             <Route path='/cars'>
               <Cars></Cars>
             </Route>
+            <Route path='/login'>
+              <Login></Login>
+            </Route>          
           </Switch>
         </Router>
     </div>

@@ -1,9 +1,10 @@
 import { ClassNames } from '@emotion/react';
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Product = ({ourCar}) => {
-    const {title,img,description,price}= ourCar ; 
+    const {id,title,img,description,price}= ourCar ; 
     return (
         < >
         <div className='g-3'>
@@ -17,7 +18,9 @@ const Product = ({ourCar}) => {
                     <Card.Text>
                         <p className='text-danger'>Price: {price} </p>
                     </Card.Text>
-                    <button className='btn btn-primary'>Purchase</button>
+                    <Link to={`/cars/${id}`}>
+                        <button className='btn btn-primary'>Purchase</button>
+                    </Link>
                 </Card.Body>
             </Card>
         </div>

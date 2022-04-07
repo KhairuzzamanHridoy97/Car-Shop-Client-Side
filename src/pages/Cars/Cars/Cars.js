@@ -1,4 +1,7 @@
+import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
+import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Car from '../Car/Car';
 
@@ -12,16 +15,21 @@ const Cars = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <h3>Purchase  Your Car</h3>
-            {
-                ourCars.map(
-                    ourCar=> <Car
-                    ourCar={ourCar}
-                    >
-
-                    </Car>
-                )
-            }
+            <h3 className='display-5 my-3 text-success'>Purchase  Your Car</h3>
+            <Container>
+                <Row xs={1} md={3}>
+                    {
+                        ourCars.map(
+                            ourCar=> <Car
+                            ourCar={ourCar}
+                            key={ourCar.id}
+                            >
+                            </Car>
+                        )
+                    }
+                </Row>
+            </Container>
+            <Footer></Footer>
         </div>
     );
 };
