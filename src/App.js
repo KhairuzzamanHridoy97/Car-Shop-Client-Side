@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import Home from './pages/Home/Home/Home';
 import Cars from './pages/Cars/Cars/Cars';
 import Login from './pages/Login/Login/Login';
+import NotFound from './pages/NotFound/NotFound';
 
 
 
@@ -26,6 +27,9 @@ function App() {
             <Route path='/login'>
               <Login></Login>
             </Route>          
+            <Route path="*">
+              <NotFound></NotFound>
+          </Route>          
           </Switch>
         </Router>
     </div>

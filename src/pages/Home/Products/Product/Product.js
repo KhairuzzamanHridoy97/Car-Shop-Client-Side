@@ -18,9 +18,9 @@ const Product = ({ourCar}) => {
                     <Card.Text>
                         <p className='text-danger'>Price: {price} </p>
                     </Card.Text>
-                    <Link to={`/cars/${id}`}>
+                    
                         <button className='btn btn-primary'>Purchase</button>
-                    </Link>
+                    
                 </Card.Body>
             </Card>
         </div>
