@@ -8,12 +8,14 @@ import Cars from './pages/Cars/Cars/Cars';
 import Login from './pages/Login/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
         <Router>
           <Switch>
             <Route exact path='/'>
@@ -36,6 +38,7 @@ function App() {
           </Route>          
           </Switch>
         </Router>
+      </AuthProvider>
     </div>
   );
 }
