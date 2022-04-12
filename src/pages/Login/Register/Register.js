@@ -2,10 +2,13 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import login from '../../../images/cars/tesla_car4.png';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Register = () => {
-    const [loginData,setLoginData]= useState([])
+    const [loginData,setLoginData]= useState([]);
+
+    const{registerUser}=useAuth()
 
     const handleOnChange=(e)=>{
         const field = e.target.name;
@@ -18,8 +21,10 @@ const Register = () => {
 
     const handleLoginSubmit =(e)=>{
         if(loginData.password!==loginData.password2){
-            alert('Your Password Not Matched!')
+            alert('Your Password Not Matched!');
+            return
         }
+        registerUser(loginData.email,loginData.password);
         e.preventDefault()
         alert('Registration Confirm ?')
     }
@@ -67,7 +72,7 @@ const Register = () => {
             onChange={handleOnChange}  
             variant="standard" 
             /> 
-            <Button sx={{width:"50%",m:1}} variant='contained' color="warning">Submit</Button>
+            <Button type='submit' sx={{width:"50%",m:1}} variant='contained' color="warning">Submit</Button>
             <NavLink to='/login' style={{textDecoration:"none"}}>
                     <Button variant='text'>
                     Already  Registered ? Please Login
