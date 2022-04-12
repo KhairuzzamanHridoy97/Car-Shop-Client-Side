@@ -63,6 +63,7 @@ const useFirebase=()=>{
 
     return{
         user,
+        loginUser,
         registerUser,
         logOut
     }
