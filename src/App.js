@@ -7,6 +7,7 @@ import Home from './pages/Home/Home/Home';
 import Cars from './pages/Cars/Cars/Cars';
 import Login from './pages/Login/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
+import Register from './pages/Login/Register/Register';
 
 
 
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path='/login'>
               <Login></Login>
+            </Route>          
+            <Route path='/register'>
+              <Register></Register>
             </Route>          
             <Route path="*">
               <NotFound></NotFound>
