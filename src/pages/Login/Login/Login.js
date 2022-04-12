@@ -2,6 +2,7 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import login from '../../../images/cars/audi2.png';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const Login = () => {
 
@@ -20,7 +21,8 @@ const Login = () => {
         e.preventDefault()
     }
     return (
-        
+        <>
+        <Navigation></Navigation>
         <Container>
             <Grid container sx={{ mt: 8 }}  spacing={2}>
                 <Grid item  sx={12} md={6}>
@@ -60,6 +62,7 @@ const Login = () => {
                 </Grid>
             </Grid>
         </Container>
+        </>
     );
 };
 
