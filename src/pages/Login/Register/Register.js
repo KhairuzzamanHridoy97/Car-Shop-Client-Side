@@ -12,10 +12,10 @@ const Register = () => {
 
     const handleOnChange=(e)=>{
         const field = e.target.name;
-        const value= e.target.value
-        const newLoginData= {...loginData}
+        const value= e.target.value;
+        const newLoginData= {...loginData};
         newLoginData[field]=value;
-        setLoginData(newLoginData)
+        setLoginData(newLoginData);
         console.log(field,value)
     }
 
@@ -24,8 +24,8 @@ const Register = () => {
             alert('Your Password Not Matched!');
             return
         }
-        registerUser(loginData.email,loginData.password);
         e.preventDefault()
+        registerUser(loginData.email,loginData.password);
         alert('Registration Confirm ?')
     }
     return (
@@ -75,7 +75,7 @@ const Register = () => {
             <Button type='submit' sx={{width:"50%",m:1}} variant='contained' color="warning">Submit</Button>
             <NavLink to='/login' style={{textDecoration:"none"}}>
                     <Button variant='text'>
-                    Already  Registered ? Please Login
+                         Already  Registered ? Please Login
                     </Button>
                 </NavLink>
             </form> 
