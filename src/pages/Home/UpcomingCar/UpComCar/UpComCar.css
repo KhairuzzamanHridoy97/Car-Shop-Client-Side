@@ -1,0 +1,12 @@
+.UpComCar-Card{
+    /* width: 100px;
+  height: 100px; */
+  transition: width 4s 
+   /* height 4s; */
+}
+
+.UpComCar-Card:hover{
+    width: 300px;
+    height: 300px;
+    box-shadow: 10px 10px 5px rgb(57, 58, 22);
+}

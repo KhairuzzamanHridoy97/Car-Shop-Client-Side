@@ -5,13 +5,14 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardMedia, Grid } from '@mui/material';
+import './UpComCar.css';
 
 const UpComCar = ({offer}) => {
     const {name,img}= offer;
     return (
         <Grid   item xs={4} sm={4} md={4}>
         
-        <Card className="latestOffer-Card"  sx={{ minWidth: 275 }}>
+        <Card className="UpComCar-Card"  sx={{ minWidth: 275 }}>
             <CardMedia
               component="img"
               
