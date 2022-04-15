@@ -10,7 +10,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 const Login = () => {
 
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, isLoading, authError } = useAuth()
+    const { user, loginUser, isLoading, authError,signInWithGoogle } = useAuth()
 
     const location = useLocation();
     const history = useHistory();
@@ -25,6 +25,10 @@ const Login = () => {
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
+    };
+
+    const handleGoogleSignIn=()=>{
+        signInWithGoogle(location,history)
     }
     return (
         <>
@@ -60,6 +64,8 @@ const Login = () => {
                         {user?.email && <Alert severity="success">Login successfully!</Alert>}
                         {authError && <Alert severity="error">{authError}</Alert>}
                     </form>
+                    <p>-- -- --</p>
+                    <Button onClick={handleGoogleSignIn} sx={{ width: '50%', m: 1 }} type="submit" variant="contained" color='success'>Google Signin</Button>
                 </Grid>
                 {/* <Grid item xs={12} md={6}>
                     <img style={{ width: '100%' }} src={login} alt="" />
