@@ -1,73 +1,77 @@
-import { useEffect, useState } from "react";
-import firebaseInitialize from "../pages/Login/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged,signInWithEmailAndPassword ,signOut} from "firebase/auth";
+
+import { useState, useEffect } from 'react';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import firebaseInitialize from '../pages/Login/Firebase/firebase.init';
 
 
-
+// initialize firebase app
 firebaseInitialize();
-const useFirebase=()=>{
-    const[user,setUser]= useState({});
+
+const useFirebase = () => {
+    const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const [authError, setAuthError] = useState('');
+
     const auth = getAuth();
 
-    const registerUser=(email,password)=>{
+    const registerUser = (email, password) => {
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
-    };
-
-    //observe user state
-    useEffect(()=>{
-     const unsubscribe= onAuthStateChanged(auth, (user) => {
-            if (user) {
-              const uid = user.uid;
-              setUser(user)
-            } else {
-              setUser({})
-            }
-          });
-          return ()=>unsubscribe;
-    },[]);
-
-    // After Complete Re
-    const loginUser=(email,password)=>{
-      signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-    
+            .then((userCredential) => {
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+                console.log(error);
+            })
+            .finally(() => setIsLoading(false));
     }
 
-    //logout
-    const logOut=()=>{
+    const loginUser = (email, password, location, history) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+    // observer user state
+    useEffect(() => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser({})
+            }
+            setIsLoading(false);
+        });
+        return () => unsubscribed;
+    }, [])
+
+    const logOut = () => {
+        setIsLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
-          }).catch((error) => {
+        }).catch((error) => {
             // An error happened.
-          });       
-    };
-
-
-    return{
-        user,
-        loginUser,
-        registerUser,
-        logOut
+        })
+            .finally(() => setIsLoading(false));
     }
 
+    return {
+        user,
+        isLoading,
+        authError,
+        registerUser,
+        loginUser,
+        logOut,
+    }
 }
 
 export default useFirebase;
