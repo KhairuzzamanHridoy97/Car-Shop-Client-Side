@@ -43,7 +43,7 @@ const Login = () => {
                             id="standard-basic"
                             label="Your Email"
                             name="email"
-                            onChange={handleOnChange}
+                            onBlur={handleOnChange}
                             variant="standard" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
@@ -51,7 +51,7 @@ const Login = () => {
                             label="Your Password"
                             type="password"
                             name="password"
-                            onChange={handleOnChange}
+                            onBlur={handleOnChange}
                             variant="standard" />
 
                             <Button sx={{ width: '50%', m: 1 }} type="submit" variant="contained" color='success'>Login</Button> <br />
@@ -65,7 +65,7 @@ const Login = () => {
                         {authError && <Alert severity="error">{authError}</Alert>}
                     </form>
                     <p>-- -- --</p>
-                    <Button onClick={handleGoogleSignIn} sx={{ width: '50%', m: 1 }} type="submit" variant="contained" color='success'>Google Signin</Button>
+                    <Button onClick={handleGoogleSignIn} sx={{ width: '30%', m: 1 }} type="submit" variant="contained" color='success'>Google Signin</Button>
                 </Grid>
                 {/* <Grid item xs={12} md={6}>
                     <img style={{ width: '100%' }} src={login} alt="" />

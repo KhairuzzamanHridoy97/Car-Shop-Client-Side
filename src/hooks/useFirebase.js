@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider, onAuthStateChanged,signInWithPopup, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider, onAuthStateChanged,signInWithPopup, updateProfile,signOut } from "firebase/auth";
 import firebaseInitialize from '../pages/Login/Firebase/firebase.init';
 
 
@@ -15,11 +15,21 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
-    const registerUser = (email, password) => {
+    const registerUser = (email, password,name,history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
+                //send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName:name
+                  }).then(() => {
+                   
+                  }).catch((error) => {
+                    
+                  });
+                  
+                history.replace('/')
             })
             .catch((error) => {
                 setAuthError(error.message);
