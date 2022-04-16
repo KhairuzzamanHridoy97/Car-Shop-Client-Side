@@ -15,7 +15,9 @@ const Cars = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <h3 className='display-5 my-3 text-success'>Purchase  Your Car</h3>
+            <div className='mt-5'>
+
+            <h3 className='display-5 text-success'>Purchase  Your Car</h3>
             <Container>
                 <Row xs={1} md={3}>
                     {
@@ -30,6 +32,7 @@ const Cars = () => {
                 </Row>
             </Container>
             <Footer></Footer>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,6 @@
+.productCard:hover{
+  height: "100%";
+  background: rgb(197, 238, 240);
+  transition: width 2s, height 4s;
+  box-shadow: 5px 10px rgb(196, 139, 172);
+}

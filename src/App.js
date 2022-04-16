@@ -9,6 +9,7 @@ import Login from './pages/Login/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import Purchase from './pages/Purchase/Purchase/Purchase';
 
 
 
@@ -32,8 +33,11 @@ function App() {
             </Route>          
             <Route path='/register'>
               <Register></Register>
-            </Route>          
-            <Route path="*">
+            </Route> 
+            <Route path='/purchase/:id'>
+              <Purchase></Purchase>
+              </Route>         
+            <Route path= "*">
               <NotFound></NotFound>
           </Route>          
           </Switch>

@@ -9,7 +9,7 @@ const Navigation = () => {
     const {user,logOut} = useAuth();
     return (
        <>
-            <Navbar bg="primary" variant="dark" expand="lg">
+            <Navbar bg="dark"  className='fixed-top' variant="dark" expand="lg">
                 <Container>
                     <Navbar.Brand as={Link} to="/home">Car Shop</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

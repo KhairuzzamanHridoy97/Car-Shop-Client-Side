@@ -1,0 +1,6 @@
+.carCard:hover{
+    height: "100%";
+  background: rgb(172, 219, 221);
+  transition: width 2s, height 4s;
+  box-shadow: 5px 10px rgb(255, 136, 0);
+}

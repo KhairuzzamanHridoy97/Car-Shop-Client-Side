@@ -47,7 +47,7 @@ const UpComingCars = () => {
                 <Box sx={{ flexGrow: 1 }}>
             <Container>
                 <Typography variant='h3' sx={{fontWeight:500,my:5,color:'success.main'}} component="div">
-                    Our Latest Offers
+                    Our Upcoming Car
                 </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
          {
