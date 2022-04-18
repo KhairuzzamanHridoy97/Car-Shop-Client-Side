@@ -23,6 +23,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import AddProduct from '../AddProducts/AddProducts';
+import ManageAllProducts from '../ManageAllProducts/ManageAllProducts';
 
 const drawerWidth = 240;
 
@@ -44,8 +45,12 @@ function Dashboard(props) {
         </Link>
 
         <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
-                  <Button color="inherit">Add Product</Button>
-              </Link>
+             <Button color="inherit">Add Product</Button>
+         </Link>
+
+         <Link style={{textDecoration:'none'}} to={`${url}/manageAllProducts`}>
+           <Button color='inherit'>ManageAllProducts</Button>
+         </Link>
       
     
     </div>
@@ -119,9 +124,12 @@ function Dashboard(props) {
        
         </Typography>
         <Switch>
-        <Route path={`${path}/addproduct`}>
-                  <AddProduct></AddProduct>
-                </Route>
+            <Route path={`${path}/addproduct`}>
+              <AddProduct></AddProduct>
+            </Route>
+            <Route path={`${path}/manageAllProducts`}>
+              <ManageAllProducts></ManageAllProducts>
+            </Route>
         </Switch>
       </Box>
     </Box>
