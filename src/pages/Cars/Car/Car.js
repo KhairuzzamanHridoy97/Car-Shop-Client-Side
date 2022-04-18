@@ -5,7 +5,7 @@ import './car.css';
 
 const Car = ({ourCar}) => {
     //destruc. 
-    const {id,title,price,description,img} = ourCar;
+    const {_id,title,price,description,img} = ourCar;
     return (
         <div className='g-4'>
             <Card >
@@ -18,7 +18,7 @@ const Car = ({ourCar}) => {
                         <Card.Text>
                            <p className='text-danger'>{price}</p>
                         </Card.Text>
-                        <Link to={`/purchase/${id}`}>
+                        <Link to={`/purchase/${_id}`}>
                              <button className='btn btn-primary'>Purchase</button>
                         </Link>
                   

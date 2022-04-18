@@ -6,7 +6,7 @@ import Product from '../Product/Product';
 const Products = () => {
     const [ourCars,setOurCars] = useState([]);
     useEffect(()=>{
-        fetch('./products.JSON')
+        fetch('http://localhost:5000/products')
         .then(res=>res.json())
         .then(data=>setOurCars(data))
     })
@@ -19,7 +19,7 @@ const Products = () => {
                     ourCars.slice(0,6).map(
                         ourCar=> <Product 
                         ourCar={ourCar}
-                        key={ourCar.id}
+                        key={ourCar._id}
                         >
 
                         </Product>

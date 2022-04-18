@@ -35,7 +35,7 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route> 
-            <Route path='/purchase/:id'>
+            <Route path='/purchase/:productId'>
               <Purchase></Purchase>
             </Route>
             <Route path='/dashboard'>

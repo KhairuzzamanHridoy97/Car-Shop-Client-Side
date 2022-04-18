@@ -11,7 +11,7 @@ const Navigation = () => {
         <>
               <Navbar bg="dark" variant="dark" sticky='top' collapseOnSelect expand="lg">
                     <Container>
-                    <Navbar.Brand href="#home">Bike Shop</Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/home'>Car Shop</Navbar.Brand>
                    
                     <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
