@@ -26,7 +26,7 @@ const Purchase = () => {
     const onSubmit = data => {
         data.email = user?.email;
         // data.status = 'Pending';
-        fetch('https://salty-cliffs-58044.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data),
@@ -85,7 +85,7 @@ const Purchase = () => {
                                             placeholder="Price"
                                             className="p-2 m-2 w-100"
                                         />
-                                        <br />
+                                        <br/>
                                         <input
                                             {...register("date")}
                                             placeholder="Date"
