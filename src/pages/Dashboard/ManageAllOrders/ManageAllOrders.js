@@ -62,18 +62,16 @@ const ManageAllOrders = () => {
                 {allOrder.name}
               </TableCell>
               <TableCell align="right">{allOrder.email}</TableCell>
-              <TableCell align="right">{allOrder.name}</TableCell>
+              <TableCell align="right">{allOrder.title}</TableCell>
               <TableCell align="right">{allOrder.price}</TableCell>
               <TableCell align="right">
                   <button onClick={()=>handleDeleteAllOrder(allOrder._id)} className="btn btn-danger">Delete</button>
-              </TableCell>
-             
+              </TableCell>             
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-
         </div>
     );
 };

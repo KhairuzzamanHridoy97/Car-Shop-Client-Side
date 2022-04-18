@@ -14,9 +14,6 @@ import {
 } from "react-router-dom";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,6 +22,7 @@ import { Button } from '@mui/material';
 import AddProduct from '../AddProducts/AddProducts';
 import ManageAllProducts from '../ManageAllProducts/ManageAllProducts';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import MyOrders from '../MyOrders/MyOrders';
 
 const drawerWidth = 240;
 
@@ -48,12 +46,14 @@ function Dashboard(props) {
         <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
              <Button color="inherit">Add Product</Button>
          </Link>
-
          <Link style={{textDecoration:'none'}} to={`${url}/manageAllProducts`}>
            <Button color='inherit'>ManageAllProducts</Button>
          </Link>
          <Link style={{textDecoration:'none'}} to={`${url}/manageAllOrders`}>
            <Button color='inherit'>ManageAllOrders</Button>
+         </Link>
+         <Link style={{textDecoration:'none'}} to={`${url}/myOrders`}>
+           <Button color='inherit'>My Orders</Button>
          </Link>
       
     
@@ -136,6 +136,9 @@ function Dashboard(props) {
             </Route>
             <Route path={`${path}/manageAllOrders`}>
               <ManageAllOrders></ManageAllOrders>
+            </Route>
+            <Route path={`${path}/myOrders`}>
+              <MyOrders></MyOrders>
             </Route>
         </Switch>
       </Box>
