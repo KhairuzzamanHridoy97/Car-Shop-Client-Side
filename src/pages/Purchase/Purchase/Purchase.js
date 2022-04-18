@@ -1,25 +1,123 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
+
+
+// purchase page making
 const Purchase = () => {
-    const {productId} = useParams();
-    const {user} = useAuth();
+    const { productId } = useParams({});
+    const [product, setProduct] = useState({});
 
-    const[product,setProduct]= useState([])
+    const { user } = useAuth();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    useEffect(()=>{
-        fetch('./products.JSON')
-        .then(res=>res.json())
-        .then(data=>setProduct(data))
-    },[])
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => {
+                const orderProduct = data.find(singleOrder => singleOrder._id == productId)
+                setProduct(orderProduct);
+                // reset(orderPackage);
+            })
+    }, [productId]);
 
+    const onSubmit = data => {
+        data.email = user?.email;
+        // data.status = 'Pending';
+        fetch('https://salty-cliffs-58044.herokuapp.com/orders', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                if (data) {
+                    alert('Ordered successfully');
+                    reset();
+                }
+            });
+        console.log(data);
+    }
     return (
-        <div>
-            <h1>Buy Your Car</h1>
-            <h3>This is {productId}</h3>
-            <h5>Product Name {product.name}</h5>
-        </div>
+        <>
+        
+            <div className="review-section">
+                <div className="row">
+                    <div class="card col-lg-6 col-sm-12  item-part">
+                        <img src={product.img} class="details-image" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title text-info">{product.title}</h5>
+                            <p class="card-text">{product.description}</p>
+                            <h3 class="card-text text-info">${product.price}</h3>
+                        </div>
+                    </div>
+
+                    {/* Form Start here */}
+                    <div className="col-lg-6 col-sm-12 mb-5">
+                        <h1 className="mt-5 text-center text-info">Please Provide your Information for Purchase</h1>
+                        <div className="login-box w-75 m-auto">
+                            <div className="package-box border border d-flex justify-content-center align-items-center p-5">
+                                <div className="login-form">
+                                    <form onSubmit={handleSubmit(onSubmit)}>
+                                        <input defaultValue={product?.title}
+                                            {...register("title", { required: true })}
+                                            placeholder="Products Name"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+                                        <input defaultValue={user?.displayName}
+                                            {...register("name", { required: true })}
+                                            placeholder="Name"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+                                        <input defaultValue={user?.email}
+                                            {...register("email", { required: true })}
+                                            placeholder="Email"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+                                        <input defaultValue={product?.price}
+                                            {...register("price", { required: true })}
+                                            placeholder="Price"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+                                        <input
+                                            {...register("date")}
+                                            placeholder="Date"
+                                            type="date"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+                                        <input
+                                            {...register("address", { required: true })}
+                                            placeholder="Address"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+                                        <input
+                                            {...register("phone", { required: true })}
+                                            placeholder="Phone Number"
+                                            className="p-2 m-2 w-100"
+                                        />
+                                        <br />
+
+                                        {errors.exampleRequired && <span>This field is required</span>}
+
+                                        <input type="submit" value="Purchase" className="btn btn-outline-success w-75" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <Footer /> */}
+        </>
     );
 };
 
