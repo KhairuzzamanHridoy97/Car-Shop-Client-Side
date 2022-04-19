@@ -26,6 +26,7 @@ import MyOrders from '../MyOrders/MyOrders';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from '../../../hooks/useAuth';
 import AddReview from '../AddReview/AddReview';
+import DashboardHome from '../DashboardHome/DashboardHome';
 
 const drawerWidth = 240;
 
@@ -142,6 +143,9 @@ function Dashboard(props) {
        
         </Typography>
         <Switch>
+        <Route exact path={path}>
+            <DashboardHome></DashboardHome>
+        </Route>
             <Route path={`${path}/addproduct`}>
               <AddProduct></AddProduct>
             </Route>
@@ -160,6 +164,7 @@ function Dashboard(props) {
             <Route path={`${path}/addReview`}>
               <AddReview></AddReview>
             </Route>
+            
         </Switch>
       </Box>
     </Box>

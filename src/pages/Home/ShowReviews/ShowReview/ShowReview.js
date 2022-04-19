@@ -11,10 +11,10 @@ const ShowReview = ({showReview}) => {
           <Typography variant="h5" component="div">
             {name}
           </Typography>
-            <Typography variant="body2" sx={{ my:1 }} color="text.secondary">
+            <Typography variant="body2" sx={{ my:1 }} >
                  {email}
             </Typography>
-          <Typography variant="body2" sx={{ my:1 }} className="text-danger" >
+          <Typography variant="body2" sx={{ my:1 }} className="text-danger reviewText" >
              {review}
             </Typography>
         <Typography variant="body2" sx={{ my:1 }}  >

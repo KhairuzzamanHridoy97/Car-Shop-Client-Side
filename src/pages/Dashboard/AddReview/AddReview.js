@@ -27,7 +27,7 @@ const AddReview = () => {
 
     return (
         <div>
-            <h2 className='text-primary text-center'>Please! Review Our Service</h2>
+            <h2 className='text-danger text-center'>Please! Review Our Service</h2>
             <div className="col-lg-12 col-sm-12">
                         <div className="login-box w-50 m-auto mt-5">
                             <div className="package-box border border d-flex justify-content-center align-items-center">

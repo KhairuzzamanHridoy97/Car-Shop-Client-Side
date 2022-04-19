@@ -44,7 +44,7 @@ const MyOrders =()=>{
     
     return (
         <div>
-            <h2>My Orders: {myOrders.length} </h2>
+            <h2 className='text-danger display-4'>My Orders: {myOrders.length} </h2>
 
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 250 }} aria-label="Orders">

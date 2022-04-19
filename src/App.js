@@ -12,8 +12,6 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Purchase from './pages/Purchase/Purchase/Purchase';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
-
-
 function App() {
   return (
     <div className="App">

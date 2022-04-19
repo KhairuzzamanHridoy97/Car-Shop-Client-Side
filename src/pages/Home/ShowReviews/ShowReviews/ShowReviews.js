@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Grid } from '@mui/material';
-import ShowReview from '../Review/ShowReview';
+import ShowReview from '../ShowReview/ShowReview';
 
 const ShowReviews = () => {
     const [reviews,setReviews]= useState([]);
@@ -19,9 +19,9 @@ const ShowReviews = () => {
 
             {
                  reviews.map(
-                     review=><ShowReview
-                     key={review._id}
-                     review={review}
+                     showReview=><ShowReview
+                     key={showReview._id}
+                     showReview={showReview}
                     >
 
                     </ShowReview>
