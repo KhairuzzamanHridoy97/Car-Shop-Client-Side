@@ -23,6 +23,8 @@ import AddProduct from '../AddProducts/AddProducts';
 import ManageAllProducts from '../ManageAllProducts/ManageAllProducts';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MyOrders from '../MyOrders/MyOrders';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import useAuth from '../../../hooks/useAuth';
 
 const drawerWidth = 240;
 
@@ -30,6 +32,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
+  const {admin}= useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -46,6 +49,7 @@ function Dashboard(props) {
         <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
              <Button color="inherit">Add Product</Button>
          </Link>
+
          <Link style={{textDecoration:'none'}} to={`${url}/manageAllProducts`}>
            <Button color='inherit'>ManageAllProducts</Button>
          </Link>
@@ -54,6 +58,9 @@ function Dashboard(props) {
          </Link>
          <Link style={{textDecoration:'none'}} to={`${url}/myOrders`}>
            <Button color='inherit'>My Orders</Button>
+         </Link>
+         <Link style={{textDecoration:'none'}} to={`${url}/makeAdmin`}>
+           <Button color='inherit'>Make Admin</Button>
          </Link>
       
     
@@ -139,6 +146,9 @@ function Dashboard(props) {
             </Route>
             <Route path={`${path}/myOrders`}>
               <MyOrders></MyOrders>
+            </Route>
+            <Route path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
             </Route>
         </Switch>
       </Box>
