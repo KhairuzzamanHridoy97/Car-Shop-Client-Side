@@ -10,7 +10,7 @@ const Footer = () => {
             <p>
               Car Shop
             </p>
-            We are providing best Bike in this town.
+            We are providing best Cars in this town.
         </Grid>
         <Grid item xs={6}>
                  <p>Home</p>

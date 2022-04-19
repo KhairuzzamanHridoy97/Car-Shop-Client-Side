@@ -72,7 +72,7 @@ const MyOrders =()=>{
                     <TableCell align="right">{myOrder.email}</TableCell>
                     <TableCell align="right">{myOrder.address}</TableCell>
                     <TableCell align="right">{myOrder.date}</TableCell>
-                    <TableCell align="right">{myOrder.Name}</TableCell>
+                    <TableCell align="right">{myOrder.title}</TableCell>
                     <TableCell align="right">{myOrder.price}</TableCell>
                     <TableCell align="right">
                         <button onClick={() => handleDelete(myOrder?._id)} className="btn btn-danger">Cancel</button>
