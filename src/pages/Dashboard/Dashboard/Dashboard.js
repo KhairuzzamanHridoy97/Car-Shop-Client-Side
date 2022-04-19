@@ -29,7 +29,7 @@ import AddReview from '../AddReview/AddReview';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
@@ -46,30 +46,48 @@ function Dashboard(props) {
       <Toolbar />
       <Divider/>
       <Link style={{ textDecoration: 'none' }} to='/home'>
-            <Button color="inherit">Home</Button>
+            <button color="inherit" className='btn btn-primary my-2'>Home</button>
         </Link>
-        <br />
+
+      {
+        admin && 
+        <Box>
+            <br />
         <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
              <Button color="inherit">Add Product</Button>
          </Link>
 
          <Link style={{textDecoration:'none'}} to={`${url}/manageAllProducts`}>
-           <Button color='inherit'>ManageAllProducts</Button>
+           <button   className='btn btn-warning my-1'>ManageAllProducts</button>
          </Link>
          <Link style={{textDecoration:'none'}} to={`${url}/manageAllOrders`}>
-           <Button color='inherit'>ManageAllOrders</Button>
+           <button  className='btn btn-warning my-1'>ManageAllOrders</button>
          </Link>
-         <Link style={{textDecoration:'none'}} to={`${url}/myOrders`}>
-           <Button color='inherit'>My Orders</Button>
-         </Link> 
          <br />
          <Link style={{textDecoration:'none'}} to={`${url}/makeAdmin`}>
-           <Button color='inherit'>Make Admin</Button>
+           <button  className='btn btn-warning my-1'>Make Admin</button>
          </Link>
+        </Box>
+      }
+
+      {
+        !admin && 
+        <Box>
+             <br />
+         <Link style={{textDecoration:'none'}} to={`${url}/myOrders`}>
+           {/* <Button color='inherit'>My Orders</Button> */}
+           <button className='btn btn-primary my-2'>My Order</button>
+         </Link> 
+        
          <br />
-         <Link style={{textDecoration:'none'}} to={`${url}/addReview`}>
-           <Button color='inherit'>Add Review</Button>
+         <Link style={{textDecoration:'none',}} to={`${url}/addReview`}>
+           {/* <Button color='inherit'>Add Review</Button> */}
+           <button className='btn btn-primary my-2'>Add Review</button>
          </Link>
+        </Box> 
+      }
+
+       
 
       
     
@@ -164,8 +182,7 @@ function Dashboard(props) {
             </Route>
             <Route path={`${path}/addReview`}>
               <AddReview></AddReview>
-            </Route>
-            
+            </Route>            
         </Switch>
       </Box>
     </Box>
