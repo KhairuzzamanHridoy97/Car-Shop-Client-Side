@@ -8,7 +8,7 @@ import Car from '../Car/Car';
 const Cars = () => {
     const [ourCars,setOurCars] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://limitless-scrubland-11621.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>setOurCars(data))
     },[])

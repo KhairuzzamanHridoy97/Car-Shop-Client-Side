@@ -15,7 +15,7 @@ const MyOrders =()=>{
 
 
     useEffect(()=>{
-        const url=`http://localhost:5000/orders?email=${user.email}`
+        const url=`https://limitless-scrubland-11621.herokuapp.com/orders?email=${user.email}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setMyOrders(data))
@@ -26,7 +26,7 @@ const MyOrders =()=>{
         console.log(id);
         const proceed = window.confirm("Are you sure, you want to delete?");
         if (proceed) {
-            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            fetch(`https://limitless-scrubland-11621.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
