@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import {Link} from "react-router-dom";
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import './Purchase.css';
@@ -62,7 +63,7 @@ const Purchase = () => {
 
                     {/* Form Start here */}
                     <div className="col-lg-6 col-sm-12 mb-5">
-                        <h1 className="mt-5 text-center text-danger">Provide your Information for Purchase</h1>
+                        <h1 className="mt-5 text-center text-danger">Provide Your Information for Purchase</h1>
                         <div className="login-box w-75 m-auto">
                             <div className="package-box border border d-flex justify-content-center align-items-center p-5">
                                 <div className="login-form">
@@ -114,6 +115,10 @@ const Purchase = () => {
                                         {errors.exampleRequired && <span>This field is required</span>}
 
                                         <input type="submit" value="Purchase" className="btn btn-outline-success w-75" />
+                                        <br /> <br />
+                                        <Link to='/dashboard'>
+                                        <button className="btn btn-outline-danger">Check Your Dashboard</button>
+                                        </Link>
                                     </form>
                                 </div>
                             </div>
