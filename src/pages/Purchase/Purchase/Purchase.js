@@ -1,8 +1,11 @@
+import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
-
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
+import './Purchase.css';
 
 
 // purchase page making
@@ -43,21 +46,23 @@ const Purchase = () => {
     }
     return (
         <>
-        
+           <Navigation></Navigation>
+        <Container>
+
             <div className="review-section">
                 <div className="row">
-                    <div class="card col-lg-6 col-sm-12  item-part">
+                    <div class="card col-lg-6 col-sm-12 item-part">
                         <img src={product.img} class="details-image" alt="..." />
                         <div class="card-body">
-                            <h5 class="card-title text-info">{product.title}</h5>
-                            <p class="card-text">{product.description}</p>
-                            <h3 class="card-text text-info">${product.price}</h3>
+                            <h5 class="card-title display-6 heading-text text-danger">{product.title}</h5>
+                            <p class="card-text ">{product.description}</p>
+                            <h3 class="card-text text-danger">{product.price} $</h3>
                         </div>
                     </div>
 
                     {/* Form Start here */}
                     <div className="col-lg-6 col-sm-12 mb-5">
-                        <h1 className="mt-5 text-center text-info">Please Provide your Information for Purchase</h1>
+                        <h1 className="mt-5 text-center text-danger">Provide your Information for Purchase</h1>
                         <div className="login-box w-75 m-auto">
                             <div className="package-box border border d-flex justify-content-center align-items-center p-5">
                                 <div className="login-form">
@@ -116,7 +121,8 @@ const Purchase = () => {
                     </div>
                 </div>
             </div>
-            {/* <Footer /> */}
+        </Container>
+           <Footer></Footer>
         </>
     );
 };

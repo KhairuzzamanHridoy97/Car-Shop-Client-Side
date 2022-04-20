@@ -16,7 +16,7 @@ const Footer = () => {
                  <p>Home</p>
                 <p>Service</p>
                 <p>Contact</p>
-                <p>About BikeShop</p>
+                <p>About CarShop</p>
         </Grid>
         <Grid item xs>
         <p>Copyright © 2022 KH IT-Tech</p>

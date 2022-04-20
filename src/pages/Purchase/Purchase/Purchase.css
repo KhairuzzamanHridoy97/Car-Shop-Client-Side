@@ -1,0 +1,22 @@
+.review-section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* margin-left: 20px; */
+}
+.booking-text{
+    margin-top: 20px;
+    padding: 5px;
+}
+.item-part{
+    margin-top: 70px ;
+}
+
+.item-part:hover{
+    border:6px solid rgb(223, 98, 60);
+    color: red;
+    background-color: rgb(30, 8, 51);
+} 
+
+.heading-text:hover{
+    text-shadow: 2px 2px #1d0894;
+}
